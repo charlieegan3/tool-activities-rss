@@ -63,6 +63,7 @@ func main() {
 			Title:       date,
 			Link:        &feeds.Link{Href: fmt.Sprintf("%s/items/%s", baseURL, date)},
 			Description: html,
+			Id:          fmt.Sprintf("%s/items/%s", baseURL, date),
 		}
 		feed.Items = append(feed.Items, &item)
 	}
