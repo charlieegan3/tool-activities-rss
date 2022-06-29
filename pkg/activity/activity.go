@@ -2,7 +2,6 @@ package activity
 
 import (
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -27,10 +26,7 @@ type Activity struct {
 func (a *Activity) ToHTML(host string) string {
 	statsHTML := ""
 	for _, stat := range a.Stats {
-		parts := strings.Split(stat, "\n")
-		if len(parts) > 1 {
-			statsHTML += fmt.Sprintf(`<li><b>%s</b> %s</li>`, parts[0], parts[1])
-		}
+		statsHTML += fmt.Sprintf(`<li>%s</li>`, stat)
 	}
 	tmpl := `<div style="font-size: 0.8rem; font-family: sans-serif;">
   <h3><a href="https://%s/activities/%s">%s (%s)</a></h3>

@@ -21,13 +21,13 @@ func TestActivityToHTML(t *testing.T) {
 				ID:          "1",
 				Type:        "run",
 				Location:    "Location",
-				Stats:       []string{"Time\n1h 31m"},
+				Stats:       []string{"<b>Time</b>: 1h 31m"},
 			},
 			ExpectedHTML: `<div style="font-size: 0.8rem; font-family: sans-serif;">
   <h3><a href="https://example.com/activities/1">Joe Bloggs (run)</a></h3>
   <h4> Morning Run (10:11, Location)</h4>
   <div> desc </div>
-  <ul> <li><b>Time</b> 1h 31m</li> </ul>
+  <ul> <li><b>Time</b>: 1h 31m</li> </ul>
 </div>
 <hr/>`,
 		},
