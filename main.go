@@ -23,14 +23,17 @@ func main() {
 
 	email := viper.GetString("email")
 	password := viper.GetString("password")
+	athleteID := viper.GetString("athlete_id")
 	baseURL := viper.GetString("baseURL")
 	host := viper.GetString("host")
 	feedTitle := viper.GetString("title")
 
-	activities, err := download.Download(host, email, password)
+	activities, err := download.Download(host, email, password, athleteID)
 	if err != nil {
 		log.Fatalf("failed to download activities: %s", err)
 	}
+
+	fmt.Println(len(activities))
 
 	feed := &feeds.Feed{
 		Title:   feedTitle,
@@ -41,14 +44,11 @@ func main() {
 	groups := make(map[string][]activity.Activity)
 
 	for _, activity := range activities {
-		if activity.IsOnDate(time.Now().UTC()) {
-			continue // will report tomorrow
+		if !activity.IsOnDate(time.Now().Add(-24 * time.Hour)) {
+			continue // only report yesterday
 		}
 
-		groupKey, valid := activity.DateString()
-		if !valid {
-			continue
-		}
+		groupKey := activity.DateString()
 
 		groups[groupKey] = append(groups[groupKey], activity)
 	}
@@ -61,6 +61,7 @@ func main() {
 
 		item := feeds.Item{
 			Title:       date,
+			Updated:     time.Now(),
 			Link:        &feeds.Link{Href: fmt.Sprintf("%s/items/%s", baseURL, date)},
 			Description: html,
 			Id:          fmt.Sprintf("%s/items/%s", baseURL, date),
