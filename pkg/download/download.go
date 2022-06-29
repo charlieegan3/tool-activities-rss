@@ -92,7 +92,7 @@ func Download(host string, email, password string, athleteID string) ([]activity
 		log.Fatal("login attempt was not correctly redirected")
 	}
 	location := res.Header.Get("Location")
-	if location != "https://www.strava.com/dashboard" {
+	if location != fmt.Sprintf("https://%s/dashboard", host) {
 		log.Fatal("login attempt was not correctly redirect to dashboard")
 	}
 
