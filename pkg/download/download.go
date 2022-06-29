@@ -99,8 +99,8 @@ func Download(host string, email, password string, athleteID string) ([]activity
 	// get dash
 	var allEntries []types.RawEntry
 	var before, cursor string
-	before = "1656440258"
-	cursor = "1656440448.929174"
+	before = ""
+	cursor = ""
 	client = &http.Client{}
 	for i := 0; i < 4; i++ {
 		url := fmt.Sprintf(
