@@ -2,7 +2,7 @@ package parser
 
 import (
 	"encoding/json"
-	"github.com/charlieegan3/activities-rss/pkg/types"
+	"github.com/charlieegan3/tool-activities-rss/pkg/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"

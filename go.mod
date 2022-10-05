@@ -1,4 +1,4 @@
-module github.com/charlieegan3/activities-rss
+module github.com/charlieegan3/tool-activities-rss
 
 go 1.19
 

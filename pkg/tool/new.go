@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/charlieegan3/activities-rss/pkg/download"
+	"github.com/charlieegan3/tool-activities-rss/pkg/download"
 )
 
 // NewEntry is a job that creates a new entry in the feed with the activities from yesterday

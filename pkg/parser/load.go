@@ -2,8 +2,8 @@ package parser
 
 import (
 	"fmt"
-	"github.com/charlieegan3/activities-rss/pkg/activity"
-	"github.com/charlieegan3/activities-rss/pkg/types"
+	"github.com/charlieegan3/tool-activities-rss/pkg/activity"
+	"github.com/charlieegan3/tool-activities-rss/pkg/types"
 	"strings"
 	"time"
 )
