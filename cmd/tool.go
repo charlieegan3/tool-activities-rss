@@ -15,7 +15,7 @@ func main() {
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
-		log.Fatalf("Fatal error config file: %w \n", err)
+		log.Fatalf("Fatal error config file: %s \n", err)
 	}
 
 	toolCfg, ok := viper.Get("tools.activities-rss").(map[string]interface{})
