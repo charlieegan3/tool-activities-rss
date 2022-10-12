@@ -81,6 +81,8 @@ func (d *ActivitiesRSS) Jobs() ([]apis.Job, error) {
 		},
 	}, nil
 }
+func (d *ActivitiesRSS) ExternalJobsFuncSet(f func(job apis.ExternalJob) error) {
+}
 
 func (d *ActivitiesRSS) DatabaseMigrations() (*embed.FS, string, error) {
 	return &embed.FS{}, "migrations", nil
