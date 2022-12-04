@@ -89,4 +89,5 @@ func (d *ActivitiesRSS) DatabaseMigrations() (*embed.FS, string, error) {
 }
 func (d *ActivitiesRSS) DatabaseSet(db *sql.DB)              {}
 func (d *ActivitiesRSS) HTTPPath() string                    { return "" }
+func (d *ActivitiesRSS) HTTPHost() string                    { return "" }
 func (d *ActivitiesRSS) HTTPAttach(router *mux.Router) error { return nil }
